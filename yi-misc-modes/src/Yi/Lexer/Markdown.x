@@ -1,8 +1,8 @@
 -- -*- haskell -*-
--- Lexer for Makefiles with consideration of GNU extensions
--- This is based off the syntax as described in the GNU Make manual:
--- http://www.gnu.org/software/make/manual/make.html
--- Maintainer: Corey O'Connor
+-- Lexer for Markdown-file
+-- This is based off the syntax as described in the github manual:
+-- https://guides.github.com/features/mastering-markdown/
+-- Maintainer: Junji Hashimoto
 {
 {-# OPTIONS -w  #-}
 module Yi.Lexer.Markdown ( lexer ) where
@@ -26,6 +26,7 @@ markdown :-
     ^\`\`\` { m (const InComment) Style.commentStyle }
     ^\#+ { c Style.keywordStyle }
     ^$space*[\+\-\*] { c Style.keywordStyle }
+    ^$space*[0-9]+\. { c Style.keywordStyle }
     \!\[[^\]]*\]\([^\)]*\) { c Style.quoteStyle }
     \[[^\]]*\]\([^\)]*\) { c Style.quoteStyle }
     \[[^\]]*\]\[[^\]]*\] { c Style.quoteStyle }
