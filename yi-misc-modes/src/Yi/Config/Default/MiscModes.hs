@@ -22,3 +22,4 @@ configureMiscModes = do
   addMode ottMode
   addMode whitespaceMode
   addMode markdownMode
+  addMode yamlMode
