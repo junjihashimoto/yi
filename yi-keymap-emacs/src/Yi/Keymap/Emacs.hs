@@ -163,6 +163,7 @@ emacsKeys univArg =
          -- All the keybindings of the form "C-M-c" where 'c' is some character
          , ctrl (metaCh 'w')    ?>>! appendNextKillE
          , ctrl (metaCh ' ')    ?>>! layoutManagersNextE
+         , ctrl (metaCh '@')    ?>>! layoutManagersNextE
          , ctrl (metaCh ',')    ?>>! layoutManagerNextVariantE
          , ctrl (metaCh '.')    ?>>! layoutManagerPreviousVariantE
          , ctrl (metaCh 'j')    ?>>! nextWinE
@@ -273,6 +274,8 @@ emacsKeys univArg =
                  , char '0'      ?>>! closeWindowEmacs
                  , char '1'      ?>>! closeOtherE
                  , char '2'      ?>>! splitE
+                 , char '3'      ?>>! layoutManagersNextE
+                 , char '4'      ?>>! layoutManagersPreviousE
                  , char 'h'      ?>>! selectAll
                  , char 's'      ?>>! askSaveEditor
                  , ctrlCh 'b'    ?>>! listBuffers
